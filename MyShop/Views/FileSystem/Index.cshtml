@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Files in <strong>@ViewBag.Directory</strong>:</h2>
+<ul>
+    @foreach (var file in ViewBag.FilesList)
+    {
+        <li>@file</li>
+    }
+</ul>
+
