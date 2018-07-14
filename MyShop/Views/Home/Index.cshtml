@@ -11,6 +11,19 @@
     </p>
 </div>
 <div class="col-md-3">
+    <h2>Our products</h2>
+    <table class="table table-striped">
+        @foreach (var product in Model)
+        {
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Description</td>
+            <td>@product.Price </td>
+        </tr>
+        }
+    </table>
+</div>
+<div class="col-md-3">
     <h2>Startup</h2>
     <p>
         New to the store? Give yourself a treat through the shop!
