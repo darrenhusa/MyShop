@@ -38,12 +38,13 @@ namespace MyShop
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IShopInitializer, ShopInitializer>();
 
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IShopInitializer shopInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -66,6 +67,7 @@ namespace MyShop
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            shopInitializer.Initialize();
         }
     }
 }
